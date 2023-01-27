@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registry</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white dark:bg-gray-800">
+    <header class="display-flex justify-space-between align-center p-2">
+        <nav class="bg-white border-gray-200 dark:bg-gray-900">
+         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+             <a href="https://flowbite.com" class="flex items-center">
+                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Budget Buddy</span>
+             </a>
+             {{#if logged_in}}
+             <div class="flex items-center">
+                 <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Log out</a>
+             </div>
+             {{/if}}
+         </div></nav>
+     <nav class="bg-gray-50 dark:bg-gray-700">
+         <div class="max-w-screen-xl px-4 py-3 mx-auto md:px-6">
+             <div class="flex items-center">
+                 <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
+                     <li>
+                         <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
+                     </li>
+                     <li>
+                         <a href="#" class="text-gray-900 dark:text-white hover:underline">Budget</a>
+                     </li>
+                     <li>
+                         <a href="#" class="text-gray-900 dark:text-white hover:underline">Goal Calculator</a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </nav>
+       </header>
+
+  <main class="container container-fluid mt-5">
+  
+
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <!-- Only include the logout script if the user is logged in -->
+ 
+  <script src="/js/logout.js"></script>
+  
+</body>
+
+</html>
