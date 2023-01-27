@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS finances_db;
+CREATE DATABASE finances_db;
