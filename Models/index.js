@@ -1,59 +1,58 @@
 
-const finances = {
-    presentValue: 0,
-    futureValue: 0,
-    interestRate: 0,
-    years: 0
+const timeValueInputs = {
+    presentValue: 5000000,
+    futureValue: null,
+    interestRate: 7,
+    years: 5,
+    compounding: {
+        yearly: 1,
+        monthly: 12,
+        weekly: 52,
+        daily: 365,
+    }
 }
 
-const timeValueMoneyEquation = (finances) => {
-    if (!finances.futureValue) {
-        futureValue = presentValue * (1 + (interestRate / 100)) ** years;
+const timeValueMoneyEquation = (timeValueInputs) => {
+    numberOfPeriods = timeValueInputs.years * timeValueInputs.compounding.yearly;
+
+    if (!timeValueInputs.futureValue) {
+        futureValue = timeValueInputs.presentValue * (1 + (timeValueInputs.interestRate / 100)) ** numberOfPeriods;
         return futureValue.toFixed(2);
     }
-    if (!finances.presentValue) {
-        presentValue = futureValue / (1 + (interestRate / 100) ** years)
+    if (!timeValueInputs.presentValue) {
+        presentValue = timeValueInputs.futureValue / (1 + (timeValueInputs.interestRate / 100) ** numberOfPeriods)
         return presentValue.toFixed(2)
     }
-    if (!object.interestRate) {
-        interestRate = ((futureValue / presentValue) ** (1 / years)) - 1;
+    if (!timeValueInputs.interestRate) {
+        interestRate = ((timeValueInputs.futureValue / timeValueInputs.presentValue) ** (1 / numberOfPeriods)) - 1;
         return interestRate.toFixed(2);
     }
-    if (!finances.years) {
-        years = Math.log(futureValue / presentValue) / Math.log(1 + (interestRate / 100))
+    if (!timeValueInputs.years) {
+        years = Math.log(futureValue / presentValue) / Math.log(1 + (timeValueInputs.interestRate / 100))
         return years;
     }
 }
 
 
-const annuityCalculation = {
-    annuityPayments: false,
-    annuityAmount:0,
-    interestRate: 6.25,
-    years: 10,
-    compounding: false,
-    yearly: false,
-    monthly: false,
-    quarterly: false,
-    weekly: false,
-    daily: false,
+const annuityInputs = {
+    annuityPayments: 20000,
+    interestRate: 9,
+    years: 30,
     infinitly: false,
     ordinary: true,
-    due: false
 }
 
-const annuityInvestmentEquation = (annuityCalculation) => {
-    periods = annuityCalculation.years / 12;
-    presentValue = annuityCalculation.loanAmount - annuityCalculation.downPayment;
-    if (annuityCalculation.ordinary = true) {
-        annuity = ((interestRate / 100) * annuityCalculation.presentValue) / (1 - (1 + (interestRate / 100) ** (1 / periods)));
-        return annuity;
+const annuityInvestmentEquation = (annuityInputs) => {
+    if (annuityInputs.ordinary = true) {
+        futureValue = annuityInputs.annuityPayments * ((((1+(annuityInputs.interestRate/100))**(years))-1)/(annuityInputs.interestRate/100));
+        return `In ${annuityInputs.years} years your investment will be worth $${futureValue.toFixed(2)}`;
     }
-    if (annuityCalculation.due = true) {
-        annuity = ((interestRate / 100) * annuityCalculation.presentValue) / ((1 - (1 + (interestRate / 100)) ** (1 / periods)) * (1 + (interestRate / 100)));
-        return (annuity / 12);
+    if (annuityInputs.ordinary = false) {
+        futureValue = annuityInputs.annuityPayments * ((((1+(annuityInputs.interestRate/100))**(years))-1)/(annuityInputs.interestRate/100)) * (1 + (interestRate / 100));
+        return `In ${annuityInputs.years} years your investment will be worth $${futureValue.toFixed(2)}`;
     }
 }
+
 
 
 const mortgageInfo = {
@@ -64,11 +63,15 @@ const mortgageInfo = {
 }
 
 const fixedMortgagePayment = (mortgageInfo) => {
-    numOfPaymentPeriods = mortgageInfo.years * 12;
+    numOfPaymentyears = mortgageInfo.years * 12;
     remainingMortgage = mortgageInfo.mortgagecost - mortgageInfo.downPayment;
     monthlyIntRate = (mortgageInfo.interestRate / 100) / 12;
-    presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentPeriods)))/(monthlyIntRate)
+    presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentyears))) / (monthlyIntRate)
     monthlyPayment = remainingMortgage / presentValueAnnuityFactor
     return `The monthly payment for your Mortgage will be $${monthlyPayment.toFixed(2)}.`;
 }
-console.log(fixedMortgagePayment(mortgageInfo))
+
+
+console.log(timeValueMoneyEquation(timeValueInputs))
+// console.log(annuityInvestmentEquation(annuityInputs))
+// console.log(fixedMortgagePayment(mortgageInfo))
