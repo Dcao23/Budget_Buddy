@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class FinancialGoals extends Model {}
+class FinancialGoals extends Model { }
 
 FinancialGoals.init(
   {
@@ -9,6 +9,11 @@ FinancialGoals.init(
       type: DataTypes.BIGINTEGER,
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
+    },
+    goal_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
       autoIncrement: true,
     },
     goal_title: {
@@ -22,9 +27,6 @@ FinancialGoals.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    goal_id: {
-      type: DataTypes.BIGINTEGER,
-    }
   },
   {
     sequelize,
