@@ -33,6 +33,6 @@ const liabilityData = [
     },
 ];
 
-const seedLiabilities = () => Gallery.bulkCreate(liabilityData);
+const seedLiabilities = () => Liabilities.bulkCreate(liabilityData);
 
 module.exports = seedLiabilities;
