@@ -60,48 +60,79 @@
       </div>
     </nav>
     <!-- Input area -->
-    <!-- Budget box -->
+    <!-- Loan Repayment  -->
     <div
       class="flex items-center"
       style="width: fit-content; height: fit-content"
     >
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-3 gap-3">
         <form
           class="bg-white dark:bg-gray-800 p-4"
           style="width: 500px; height: 500px"
         >
           <div class="mb-6">
             <label
-              for="budgetItem"
+              for="loanRepayment"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Budget Item</label
+              >Loan Repayment</label
             >
             <input
-              type="budgetItem"
-              id="budgetItem"
+              type="loanRepayment"
+              id="loanRepayment"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Insert Item"
-              required
+              requiredgit
             />
           </div>
           <div class="mb-6">
             <label
-              for="budgetAmount"
+              for="loanAmount"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Budget Amount</label
+              >Loan Amount</label
             >
             <input
-              type="budgetAmount"
-              id="budgetAmount"
+              type="loanAmount"
+              id="loanAmount"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Insert Amount"
               required
             />
           </div>
         </form>
-        <!-- Investment box -->
+        <!-- Saving Goal -->
         <form class="bg-white dark:bg-gray-800 p-4">
-          <!-- <div class="grid gap-6 mb-6 md:grid-cols-1"> -->
+          <div class="mb-6">
+            <label
+              for="investmentItem"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Investment Item</label
+            >
+            <input
+              type="investmentItem"
+              id="investmentItem"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Insert Item"
+              required
+            />
+          </div>
+
+          <div class="mb-6">
+            <label
+              for="investmentItem"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Investment Amount</label
+            >
+            <input
+              type="investmentAmount"
+              id="investmentAmount"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Insert Amount"
+              required
+            />
+          </div>
+        </form>
+        <!-- Calculator section -->
+        <form class="bg-white dark:bg-gray-800 p-4">
           <div class="mb-6">
             <label
               for="investmentItem"
