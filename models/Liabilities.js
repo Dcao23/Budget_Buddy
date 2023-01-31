@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Liabilities extends Model {}
+class Liabilities extends Model { }
 
 Liabilities.init(
   {
@@ -11,6 +11,11 @@ Liabilities.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    liabilities_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+    },
     auto_loan: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -18,7 +23,7 @@ Liabilities.init(
     personal_loan: {
       type: DataTypes.DECIMAL,
     },
-    mortgage: {
+    mortgage_rent: {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
@@ -26,10 +31,10 @@ Liabilities.init(
       type: DataTypes.DECIMAL,
     },
     student_loan: {
-        type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL
     },
     utilities: {
-        type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL
     }
   },
   {
@@ -42,3 +47,4 @@ Liabilities.init(
 );
 
 module.exports = router;
+module.exports = Liabilities;

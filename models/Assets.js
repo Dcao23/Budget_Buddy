@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Assets extends Model {}
+class Assets extends Model { }
 
 Assets.init(
   {
@@ -9,6 +9,11 @@ Assets.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
+    },
+    assets_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
       autoIncrement: true,
     },
     monthy_income: {
