@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/financialGraphs.js"></script>
+    <script src="./js/equations.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 </head>
 
@@ -20,11 +20,16 @@
                 datasets: [{
                     type: 'bar',
                     label: 'Bar Dataset',
-                    data: [10, 20, 30, 40]
+                    data: graphPrincipleTotal,
                 }, {
                     type: 'line',
                     label: 'Line Dataset',
-                    data: [50, 50, 50, 50],
+                    data: graphInterestPayments,
+                },
+                {
+                    type: 'line',
+                    label: 'Line Dataset',
+                    data: graphInterestPayments,
                 }],
                 labels: ['January', 'February', 'March', 'April',]
             },
