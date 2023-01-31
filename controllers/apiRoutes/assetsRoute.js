@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Assets } = require('../apiRoutes')
+const { Asset } = require('../apiRoutes')
 
 router.post('/', async (req, res) => {
     try {
-      const newAsset = await asset.create({
+      const newAsset = await Asset.create({
         ...req.body,
         user_id: req.session.user_id,
       });
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
   
   router.delete('/:id', async (req, res) => {
     try {
-      const assetData = await asset.destroy({
+      const assetData = await Asset.destroy({
         where: {
           id: req.params.id,
           user_id: req.session.user_id,
