@@ -78,9 +78,13 @@ const fixedMortgagePayment = (mortgageInfo) => {
     monthlyPayment = remainingMortgage / presentValueAnnuityFactor
     console.log(`The monthly payment for your Mortgage will be $${monthlyPayment.toFixed(2)}.`)
     return monthlyPayment.toFixed(2);
+    totalInterestPay = 
+    totalPayed = 
 }
 
+const mortgageGraphData = {
 
+}
 
 // addEventListener('click',timeValueMoneyEquation)
 // addEventListener('click',annuityInvestmentEquation)
