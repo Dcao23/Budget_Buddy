@@ -47,3 +47,4 @@ Liabilities.init(
 );
 
 module.exports = router;
+module.exports = Liabilities;
