@@ -64,10 +64,11 @@ const annuityInvestmentEquation = (annuityInputs) => {
 
 // inputs to calculate mortgage payments
 const mortgageInfo = {
-    interestRate: 8,
+    interestRate: 5.5,
     years: 30,
     downPayment: 20000,
-    mortgagecost: 120000,
+    mortgagecost: 320000,
+    additionalPrincipalPayment: 0
 }
 // equations for calculating monthly mortage payments
 const fixedMortgagePayment = (mortgageInfo) => {
@@ -76,14 +77,16 @@ const fixedMortgagePayment = (mortgageInfo) => {
     monthlyIntRate = (mortgageInfo.interestRate / 100) / 12;
     presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentyears))) / (monthlyIntRate)
     monthlyPayment = remainingMortgage / presentValueAnnuityFactor
+    
+    totalInterestPayedMonthly = (remainingMortgage*monthlyIntRate) - 
+    totalInterestPayed = monthlyPayment * numOfPaymentyears;
+    totalPayed =  
     console.log(`The monthly payment for your Mortgage will be $${monthlyPayment.toFixed(2)}.`)
     return monthlyPayment.toFixed(2);
-    totalInterestPay = 
-    totalPayed = 
 }
 
-const mortgageGraphData = {
-
+const GraphingMortgagePaymentData = (fixedMortgagePayment) => {
+    
 }
 
 // addEventListener('click',timeValueMoneyEquation)
