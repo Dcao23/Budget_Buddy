@@ -23,7 +23,7 @@ Liabilities.init(
     personal_loan: {
       type: DataTypes.DECIMAL,
     },
-    mortgage: {
+    mortgage_rent: {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
