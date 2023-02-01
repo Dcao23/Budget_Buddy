@@ -15,13 +15,6 @@ router.get('/mortgage_rent', async (req, res) => {
     res.json(personal_loan);
 });
 
-router.get('/auto_loan', async (req, res) => {
-    const mortgage_rent = await mortgage_rent.findAll().catch((err) => {
-        res.json(err);
-    });
-    res.json(mortgage_rent);
-});
-
 router.get('/credit_card', async (req, res) => {
     const credit_card = await credit_card.findAll().catch((err) => {
         res.json(err);
