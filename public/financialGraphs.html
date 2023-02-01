@@ -7,36 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/equations.js"></script>
+  
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 </head>
 
 <body>
-    <canvas id='chart' height="400" width="400"> </canvas>
-    <script>
-        const ctx = document.getElementById('chart')
-        const mixedChart = new Chart(ctx, {
-            data: {
-                datasets: [{
-                    type: 'bar',
-                    label: 'Bar Dataset',
-                    data: graphPrincipleTotal,
-                }, {
-                    type: 'line',
-                    label: 'Line Dataset',
-                    data: graphInterestPayments,
-                },
-                {
-                    type: 'line',
-                    label: 'Line Dataset',
-                    data: graphInterestPayments,
-                }],
-                labels: ['January', 'February', 'March', 'April',]
-            },
-            
-        });
+    <div id="table">
 
-    </script>
+        
+    </div>
+    <canvas id='chart' height="400" width="400">
+    
+     </canvas> 
+      <script src="./js/equations.js"></script>
 </body>
 
 </html>

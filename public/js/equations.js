@@ -82,23 +82,65 @@ const fixedMortgagePayment = (mortgageInfo) => {
     return monthlyPayment.toFixed(2);
 }
 // calculated a series of each interest payment, principle payment, and remaining principles on a monthly bases and pushed them into an array for graphing 
-const GraphingMortgagePaymentData = (fixedMortgagePayment) => {
+const GraphingMortgagePaymentData = () => {
     var remainingPrinciple = remainingMortgage;
-    console.log(remainingPrinciple)
     const graphPrinciplePayments = [];
     const graphInterestPayments = [];
     const graphRemainingPrincipleTotal = [];
     for (let i = numOfPaymentPeriods; i > 0; i--) {
-        var interestPayment = (remainingPrinciple * ((mortgageInfo.interestRate/100)/12));
-        graphInterestPayments.push(interestPayment)
+        var interestPayment = (remainingPrinciple * ((mortgageInfo.interestRate / 100) / 12));
+        graphInterestPayments.push(interestPayment.toFixed(2))
         var principlePayment = monthlyPayment.toFixed(2) - interestPayment;
-        graphPrinciplePayments.push(principlePayment)
+        graphPrinciplePayments.push(principlePayment.toFixed(2))
         remainingPrinciple -= principlePayment;
-        graphRemainingPrincipleTotal.push(remainingPrinciple)
-        console.log(remainingPrinciple)
+        graphRemainingPrincipleTotal.push(remainingPrinciple.toFixed(2))
     }
+    const yearlygraphPrinciplePayments = []
+    const yearlygraphInterestPayments = []
+    const yearlygraphRemainingPrincipleTotal = []
+    yearlygraphPrinciplePayments.push(graphPrinciplePayments[0])
+    yearlygraphInterestPayments.push(graphInterestPayments[0])
+    yearlygraphRemainingPrincipleTotal.push(graphRemainingPrincipleTotal[0])
+    for (let index = 12; index < numOfPaymentPeriods; index++) {
+        if (index % 12 == 0) {
+            yearlygraphPrinciplePayments.push(graphPrinciplePayments[index - 1])
+            yearlygraphInterestPayments.push(graphInterestPayments[index - 1])
+            yearlygraphRemainingPrincipleTotal.push(graphRemainingPrincipleTotal[index - 1])
+        }
+
+    }
+
+
+
+    return { yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
+
 }
+
 fixedMortgagePayment(mortgageInfo);
+
+const { yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
+    = GraphingMortgagePaymentData()
+const ctx = document.getElementById('chart')
+const mixedChart = new Chart(ctx, {
+    data: {
+        datasets: [{
+            type: 'bar',
+            label: 'Remaining Principle $',
+            data: yearlygraphRemainingPrincipleTotal,
+        }, {
+            type: 'line',
+            label: 'Principle Payment $',
+            data: yearlygraphPrinciplePayments,
+        },
+        {
+            type: 'line',
+            label: 'Interest Payment $',
+            data: yearlygraphInterestPayments,
+        }],
+        labels: []
+    },
+
+});
 
 
 // addEventListener('click',timeValueMoneyEquation)
