@@ -1,40 +1,44 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class FinancialGoals extends Model { }
+class Liability extends Model { }
 
-FinancialGoals.init(
+Liability.init(
   {
     id: {
-      type: DataTypes.BIGINTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    goal_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-    },
-    goal_title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    goal_price: {
-      type: DataTypes.DECIMAL,
-    },
-    monthly_contr: {
+    auto_loan: {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    personal_loan: {
+      type: DataTypes.DECIMAL,
+    },
+    mortgage_rent: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    credit_card: {
+      type: DataTypes.DECIMAL,
+    },
+    student_loan: {
+      type: DataTypes.DECIMAL
+    },
+    utilities: {
+      type: DataTypes.DECIMAL
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Liabilities',
+    modelName: 'Liability',
   }
 );
 
-module.exports = router;
+module.exports = Liability;

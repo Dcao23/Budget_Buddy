@@ -1,9 +1,8 @@
-const { Liabilities } = require('../models');
+const { Liability } = require('../models');
 
 const liabilityData = [
     {
         id: 600,
-        liabilities_id: 700,
         auto_loan: 6000.11,
         personal_loan: 8000.12,
         mortgage_rent: 1300.12,
@@ -13,7 +12,6 @@ const liabilityData = [
     },
     {
         id: 900,
-        liabilities_id: 1200,
         auto_loan: 6430.11,
         personal_loan: 3829.12,
         mortgage_rent: 3829.12,
@@ -23,7 +21,6 @@ const liabilityData = [
     },
     {
         id: 245,
-        liabilities_id: 293,
         auto_loan: 38399.11,
         personal_loan: 29278.12,
         mortgage_rent: 3923.12,
@@ -33,6 +30,6 @@ const liabilityData = [
     },
 ];
 
-const seedLiabilities = () => Liabilities.bulkCreate(liabilityData);
+const seedLiability = () => Liability.bulkCreate(liabilityData);
 
-module.exports = seedLiabilities;
+module.exports = seedLiability;
