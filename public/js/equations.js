@@ -77,6 +77,8 @@ const fixedMortgagePayment = (mortgageInfo) => {
     monthlyIntRate = (mortgageInfo.interestRate / 100) / 12;
     presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentPeriods))) / (monthlyIntRate)
     monthlyPayment = remainingMortgage / presentValueAnnuityFactor
+    totalamounttopay = monthlyPayment * numOfPaymentPeriods
+    
     console.log(`The monthly payment for your Mortgage will be $${monthlyPayment.toFixed(2)}.`)
     GraphingMortgagePaymentData(fixedMortgagePayment);
     return monthlyPayment.toFixed(2);
@@ -95,6 +97,12 @@ const GraphingMortgagePaymentData = () => {
         remainingPrinciple -= principlePayment;
         graphRemainingPrincipleTotal.push(remainingPrinciple.toFixed(2))
     }
+    let totalInterestPayment = graphInterestPayments.reduce((a,b)=>{
+        return (Number(a) || 0) + (Number(b) || 0);
+    }, 10);
+    
+    console.log(totalInterestPayment.toFixed(2))
+    const graphYears = []
     const yearlygraphPrinciplePayments = []
     const yearlygraphInterestPayments = []
     const yearlygraphRemainingPrincipleTotal = []
@@ -109,25 +117,40 @@ const GraphingMortgagePaymentData = () => {
         }
 
     }
+    
+    for (let i = 1; i< mortgageInfo.years + 1 ; i++ ){
+        graphYears.push(`Year ${i}`);
+
+    }
 
 
-
-    return { yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
-
+    return {graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
 }
-
 fixedMortgagePayment(mortgageInfo);
 
-const { yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
+// Will graph the remianing principle of the payments throught the years. 
+var graphData = {graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
     = GraphingMortgagePaymentData()
-const ctx = document.getElementById('chart')
-const mixedChart = new Chart(ctx, {
+const ctx = document.getElementById('principleChart')
+const graphChart = new Chart(ctx, {
     data: {
         datasets: [{
             type: 'bar',
             label: 'Remaining Principle $',
             data: yearlygraphRemainingPrincipleTotal,
-        }, {
+        }],
+        labels: graphYears,
+    },
+
+});
+
+// Will graph the difference between interest and princple for each payment made.
+var graphData = {graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }  
+GraphingMortgagePaymentData()
+const stx = document.getElementById('breakDownChart')
+const lineChart = new Chart(stx, {
+    data: {
+        datasets: [ {
             type: 'line',
             label: 'Principle Payment $',
             data: yearlygraphPrinciplePayments,
@@ -137,7 +160,7 @@ const mixedChart = new Chart(ctx, {
             label: 'Interest Payment $',
             data: yearlygraphInterestPayments,
         }],
-        labels: []
+        labels: graphYears,
     },
 
 });
