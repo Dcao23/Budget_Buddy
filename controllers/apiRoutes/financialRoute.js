@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Finances } = require('../apiRoutes')
+const { FinancialGoal } = require('../../models/FinancialGoal')
+
+//need get route
 
 router.post('/', async (req, res) => {
     try {
