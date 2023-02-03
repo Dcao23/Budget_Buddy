@@ -4,7 +4,7 @@ const liabilities = require('./liabilitiesRoute');
 const financial = require('./financialRoute');
 const assets = require('./assetsRoute');
 
-router.use('/users', userRoutes);
+router.use('/user', userRoutes);
 router.use('/liabilities', liabilities);
 router.use('/financial', financial);
 router.use('/assets', assets);
