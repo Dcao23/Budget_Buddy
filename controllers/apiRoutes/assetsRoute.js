@@ -1,44 +1,35 @@
 const router = require('express').Router();
-const { Asset } = require('../../models/Asset')
-
-router.get('/', async (req, res) => {
-  try {
-    const assetsData = await Asset.findAll();
-    res.status(200).json(assetsData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+const { Asset } = require('../apiRoutes')
 
 router.post('/', async (req, res) => {
-  try {
-    const newAsset = await Asset.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newAsset);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.delete('/:id', async (req, res) => {
-  try {
-    const assetData = await Asset.destroy({
-      where: {
-        id: req.params.id,
+    try {
+      const newAsset = await Asset.create({
+        ...req.body,
         user_id: req.session.user_id,
-      },
-    });
-    if (!assetData) {
-      res.status(404).json({ message: 'Required input field' });
-      return;
+      });
+  
+      res.status(200).json(newAsset);
+    } catch (err) {
+      res.status(400).json(err);
     }
-    res.status(200).json(assetData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-module.exports = router;
+  });
+  
+  router.delete('/:id', async (req, res) => {
+    try {
+      const assetData = await Asset.destroy({
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      });
+      if (!assetData) {
+        res.status(404).json({ message: 'Required input field' });
+        return;
+      }
+      res.status(200).json(assetData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
+  module.exports = router;

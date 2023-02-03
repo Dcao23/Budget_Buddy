@@ -3,35 +3,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./js/financialGraphs.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 </head>
 
 <body>
-    <canvas id='chart' height="400" width="400"> </canvas>
-    <script>
-        const ctx = document.getElementById('chart')
-        const mixedChart = new Chart(ctx, {
-            data: {
-                datasets: [{
-                    type: 'bar',
-                    label: 'Bar Dataset',
-                    data: [10, 20, 30, 40]
-                }, {
-                    type: 'line',
-                    label: 'Line Dataset',
-                    data: [50, 50, 50, 50],
-                }],
-                labels: ['January', 'February', 'March', 'April',]
-            },
-            
-        });
+  <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-9">
+      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+        xmlns="http://www.w3.org/2000/svg"></svg>
+      <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
+    </div>
+    <div class="block lg:hidden">
+      <!-- button for home page -->
+      <!-- <button
+            class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+          >
+            <svg
+              class="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button> -->
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Home
+        </a>
+        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Budget
+        </a>
+        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+          Goal Calculator
+        </a>
+      </div>
+    </div>
+  </nav>
 
-    </script>
+
+
+
+  <div id="mortgageDisplay" class="w-full h-80 shrink">
+    <div class="mt-5 col-span-2 md:mt-0  w-1/5 inline-block shrink">
+      <div class="overflow-hidden shadow sm:rounded-md ">
+        <div class="text-gray-700 px-4 py-5 sm:p-6">
+          <div>
+            <div class="col-span-6">
+              <label for="first-name" class="block text-sm font-medium text-gray-700">Loan Amount $:</label>
+              <input name="Loan Amount" id="loanAmount" autocomplete="given-name"
+                class=" shrink mt-1 block  rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block text-sm font-medium text-gray-700">Down Payment $:</label>
+              <input type="text" name="last-name" id="downPayment" autocomplete="family-name"
+                class="mt-1 block rounded-md ring-blue-100 border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <label for="email-address" class="block text-sm font-medium text-gray-700">Interest rate (%):</label>
+              <input type="text" name="email-address" id="interestRate" autocomplete="email"
+                class="mt-1 block rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            </div>
+
+
+            <div class="col-span-6">
+              <label for="street-address" class="block text-sm font-medium text-gray-700">Years:</label>
+              <input type="text" name="street-address" id="years" autocomplete="street-address"
+                class="mt-1 block rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            </div>
+
+
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button id='calculate' 
+            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Calculate</button>
+        </div>
+      </div>
+
+    </div>
+
+    <canvas class="float-right" id="pieChart">
+
+    </canvas>
+  </div>
+  <canvas id='principleChart'>
+
+  </canvas>
+  <canvas id="breakDownChart">
+
+  </canvas>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="./js/mortgageCalculations.js"></script>
 </body>
 
 </html>
