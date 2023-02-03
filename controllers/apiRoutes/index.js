@@ -6,7 +6,7 @@ const assets = require('./assetsRoute');
 
 router.use('/users', userRoutes);
 router.use('/liabilities', liabilities);
-router.use('/financial', financial);
-router.use('/assets', assets);
+router.use('/financial', userRoutes);
+router.use('/assets', userRoutes);
 
 module.exports = router;
