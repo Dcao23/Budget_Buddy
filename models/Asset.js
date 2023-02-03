@@ -25,6 +25,14 @@ Asset.init(
     savings: {
       type: DataTypes.FLOAT,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      defaultValue:0,
+      references:{
+        model: 'user',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
