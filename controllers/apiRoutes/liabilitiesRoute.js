@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const { Liability } = require('../../models');
 
 router.get('/', async (req, res) => {
@@ -8,6 +9,7 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+
 });
 
 router.post('/', async (req, res) => {
@@ -24,96 +26,6 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    try {
-        const liabilityData = await Liabilities.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!liabilityData) {
-            res.status(404).json({ message: 'Required input field' });
-            return;
-        }
-        res.status(200).json(liabilityData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.delete('/:auto_loan', async (req, res) => {
-    try {
-        const liabilityData = await Liabilities.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!liabilityData) {
-            res.status(404).json({ message: 'Required input field' });
-            return;
-        }
-        res.status(200).json(liabilityData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.delete('/:mortgage_rent', async (req, res) => {
-    try {
-        const liabilityData = await Liabilities.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!liabilityData) {
-            res.status(404).json({ message: 'Required input field' });
-            return;
-        }
-        res.status(200).json(liabilityData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.delete('/:credit_card', async (req, res) => {
-    try {
-        const liabilityData = await Liabilities.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!liabilityData) {
-            res.status(404).json({ message: 'Required input field' });
-            return;
-        }
-        res.status(200).json(liabilityData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.delete('/:student_loan', async (req, res) => {
-    try {
-        const liabilityData = await Liabilities.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!liabilityData) {
-            res.status(404).json({ message: 'Required input field' });
-            return;
-        }
-        res.status(200).json(liabilityData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.delete('/:utilities', async (req, res) => {
     try {
         const liabilityData = await Liabilities.destroy({
             where: {

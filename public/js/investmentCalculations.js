@@ -22,12 +22,12 @@ const timeValueMoneyEquation = (timeValueInputs) => {
         return futureValue.toFixed(2);
     }
     if (!timeValueInputs.presentValue) {
-        presentValue = timeValueInputs.futureValue * (1/ ((1 + timeValueInputs.interestRate/100)**(numberOfPeriods)))
+        presentValue = timeValueInputs.futureValue * (1 / ((1 + timeValueInputs.interestRate / 100) ** (numberOfPeriods)))
         console.log(`The present value of this investment is $${presentValue.toFixed(2)}`);
         return presentValue.toFixed(2);
     }
     if (!timeValueInputs.interestRate) {
-        interestRate = ((((timeValueInputs.futureValue / timeValueInputs.presentValue) ** (1/numberOfPeriods))) - 1)*100;
+        interestRate = ((((timeValueInputs.futureValue / timeValueInputs.presentValue) ** (1 / numberOfPeriods))) - 1) * 100;
         console.log(`The interest rate needed to reach your investment goal is ${interestRate.toFixed(2)}`)
         return interestRate.toFixed(2);
     }
@@ -50,45 +50,13 @@ const annuityInputs = {
 // will calculate the future value of an annuity, depending on whether it is a ordinary annuity or annuity due.
 const annuityInvestmentEquation = (annuityInputs) => {
     if (annuityInputs.ordinary = true) {
-        futureValue = annuityInputs.annuityPayments * ((((1+(annuityInputs.interestRate/100))**(annuityInputs.years))-1)/(annuityInputs.interestRate/100));
+        futureValue = annuityInputs.annuityPayments * ((((1 + (annuityInputs.interestRate / 100)) ** (annuityInputs.years)) - 1) / (annuityInputs.interestRate / 100));
         console.log(`In ${annuityInputs.years} years your investment will be worth $${futureValue.toFixed(2)}`)
         return futureValue.toFixed(2);
     }
     if (annuityInputs.ordinary = false) {
-        futureValue = annuityInputs.annuityPayments * ((((1+(annuityInputs.interestRate/100))**(annuityInputs.years))-1)/(annuityInputs.interestRate/100)) * (1 + (interestRate / 100));
+        futureValue = annuityInputs.annuityPayments * ((((1 + (annuityInputs.interestRate / 100)) ** (annuityInputs.years)) - 1) / (annuityInputs.interestRate / 100)) * (1 + (interestRate / 100));
         console.log(`In ${annuityInputs.years} years your investment will be worth $${futureValue.toFixed(2)}`)
         return futureValue.toFixed(2);
     }
 }
-//---------------------------------------------------------------------------------------------------------//
-
-// inputs to calculate mortgage payments
-const mortgageInfo = {
-    interestRate: 5.5,
-    years: 30,
-    downPayment: 20000,
-    mortgagecost: 320000,
-    additionalPrincipalPayment: 0
-}
-// equations for calculating monthly mortage payments
-const fixedMortgagePayment = (mortgageInfo) => {
-    numOfPaymentyears = mortgageInfo.years * 12;
-    remainingMortgage = mortgageInfo.mortgagecost - mortgageInfo.downPayment;
-    monthlyIntRate = (mortgageInfo.interestRate / 100) / 12;
-    presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentyears))) / (monthlyIntRate)
-    monthlyPayment = remainingMortgage / presentValueAnnuityFactor
-    
-    totalInterestPayedMonthly = (remainingMortgage*monthlyIntRate) - 
-    totalInterestPayed = monthlyPayment * numOfPaymentyears;
-    totalPayed =  
-    console.log(`The monthly payment for your Mortgage will be $${monthlyPayment.toFixed(2)}.`)
-    return monthlyPayment.toFixed(2);
-}
-
-const GraphingMortgagePaymentData = (fixedMortgagePayment) => {
-    
-}
-
-// addEventListener('click',timeValueMoneyEquation)
-// addEventListener('click',annuityInvestmentEquation)
-// addEventListener('click',fixedMortgagePayment)
