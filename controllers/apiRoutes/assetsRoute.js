@@ -3,14 +3,12 @@ const { Asset } = require('../../models/Asset')
 
 router.get('/', async (req, res) => {
   try {
-    //to do need to code this out
-    console.log('hello')
+    const assetsData = await Asset.findAll();
+    res.status(200).json(assetsData);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  catch {
-    // to do need to code this out
-    console.log('error')
-  }
-})
+});
 
 router.post('/', async (req, res) => {
   try {
