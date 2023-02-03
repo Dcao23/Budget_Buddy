@@ -1,5 +1,15 @@
 const router = require('express').Router();
-const { Finances } = require('../apiRoutes')
+const { FinancialGoal } = require('../../models/FinancialGoal')
+
+//need get route
+router.get('/', async (req, res) => {
+    try {
+        const financialRouteData = await FinancialGoal.findAll();
+        res.status(200).json(financialRouteData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.post('/', async (req, res) => {
     try {

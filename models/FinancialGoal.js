@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Assets extends Model { }
+class FinancialGoal extends Model { }
 
-Assets.init(
+FinancialGoal.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,24 +11,16 @@ Assets.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    assets_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-    },
-    monthy_income: {
-      type: DataTypes.decimal,
+    goal_title: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    vehicles: {
-      type: DataTypes.INTEGER,
+    goal_price: {
+      type: DataTypes.DECIMAL,
     },
-    properties: {
-      type: DataTypes.INTEGER,
+    monthly_contr: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
-    },
-    savings: {
-      type: DataTypes.decimal,
     },
   },
   {
@@ -36,8 +28,8 @@ Assets.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Assets',
+    modelName: 'FinancialGoal',
   }
 );
 
-module.exports = Project;
+module.exports = FinancialGoal;

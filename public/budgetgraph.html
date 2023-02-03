@@ -14,19 +14,16 @@
 <body>
     <canvas id='chart' height="400" width="400">
         <script>
+            const {liabilities_const, liabilities_names} = require('../js/budjet.js')
             const ctx = document.getElementById('chart')
             const mixedChart = new Chart(ctx, {
 
                 type: 'doughnut',
                 data: {
-                    labels: [
-                        'Red',
-                        'Blue',
-                        'Yellow'
-                    ],
+                    labels: liabilities_names,
                     datasets: [{
                         label: 'My First Dataset',
-                        data: [300, 50, 100],
+                        data: liabilities_const,
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
@@ -44,7 +41,6 @@
 
 
     </canvas>
-
 </body>
 
 </html>

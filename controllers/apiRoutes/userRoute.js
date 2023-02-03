@@ -1,8 +1,5 @@
 
 const router = require('express').Router();
-<<<<<<< Updated upstream
-const { user } = require();
-=======
 const User = require('../../models/User');
 
 
@@ -15,7 +12,6 @@ const User = require('../../models/User');
         res.status(500).json(err);
     }
 });
->>>>>>> Stashed changes
 
 router.post('/', async (req, res) => {
     try {
@@ -34,22 +30,14 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-<<<<<<< Updated upstream
-        const userData = await User.find({ where: {email: req.body.email} });
-=======
         const userData = await User.findOne({ where: {email: req.body.email} });
->>>>>>> Stashed changes
         if (!userData) {
             res.status(400).json({ message: 'Incorrect email try again' });
             return;
         }
         const userPassword = await userData.checkPassword(req.body.password);
         if (!userPassword) {
-<<<<<<< Updated upstream
-            res.status(400).json({ message: 'Incorrect email/password try again'})
-=======
             res.status(400).json({ message: 'Incorrect password try again'})
->>>>>>> Stashed changes
             return;
         }
         req.session.save(() => {
