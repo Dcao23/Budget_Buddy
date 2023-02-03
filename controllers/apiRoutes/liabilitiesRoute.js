@@ -1,7 +1,14 @@
 const router = require('express').Router();
 const { Liabilities } = require('../../models');
 
-// need overall get rout 
+router.get('/', async (req, res) => {
+    try {
+        const liabilitiesData = await Liabilities.findAll();
+        res.status(200).json(liabilitiesData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.get('/:auto_loan', async (req, res) => {
     const auto_loan = await auto_loan.findAll().catch((err) => {
