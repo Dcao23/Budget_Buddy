@@ -30,6 +30,14 @@ Liability.init(
     },
     utilities: {
       type: DataTypes.DECIMAL
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      defaultValue:0,
+      references:{
+        model: 'user',
+        key: 'id'
+      }
     }
   },
   {

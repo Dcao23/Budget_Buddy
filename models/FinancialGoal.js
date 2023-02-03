@@ -22,6 +22,14 @@ FinancialGoal.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      defaultValue:0,
+      references:{
+        model: 'user',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
