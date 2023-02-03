@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Asset } = require('../apiRoutes')
+const { Asset } = require('../../models/Asset')
 
 router.get('/', async (req, res) => {
   try {
