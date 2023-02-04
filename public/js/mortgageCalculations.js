@@ -7,19 +7,13 @@
 // equations for calculating monthly mortage payments
 function fixedMortgagePayment () {
 
-// var interestRate= 0;
-//     var  years= 30;
-//     var downPayment= 0;
-//     var mortgagecost=  300000;
-
 
 
     var interestRate= ($("#interestRate").val());
     var years= $("#years").val();
     var downPayment= $('#downPayment').val();
     var mortgagecost=  $("#loanAmount").val();
-
-    
+ 
 
 
     numOfPaymentPeriods = years * 12;
@@ -35,9 +29,9 @@ function fixedMortgagePayment () {
     console.log(years)
 
     var loanADiv =  document.getElementById('la')
-    loanADiv.append(`$${remainingMortgage.toLocaleString()}`)
+    loanADiv.textContent = (`$${remainingMortgage.toLocaleString()}`)
 var monPayDiv = document.getElementById('mp')
-    monPayDiv.append(`$${FixedMonthlyPay.toLocaleString()}`)
+    monPayDiv.textContent= (`$${FixedMonthlyPay.toLocaleString()}`)
 
 // calculated a series of each interest payment, principle payment, and remaining principles on a monthly bases and pushed them into an array for graphing 
     
@@ -78,9 +72,11 @@ var monPayDiv = document.getElementById('mp')
 
     }
     var totalDiv =  document.getElementById('tcol')
-    totalDiv.append(`$${totalamounttopay.toLocaleString()}`)
+    totalDiv.textContent= (`$${totalamounttopay.toLocaleString()}`)
     var totalIntDiv =  document.getElementById('ti')
-    totalIntDiv.append(`$${totalInterestPayment.toLocaleString()}`)
+    totalIntDiv.textContent=(`$${totalInterestPayment.toLocaleString()}`)
+
+
 const ctx = document.getElementById('principleChart')
 const graphChart = new Chart(ctx, {
     data: {
@@ -130,9 +126,9 @@ const mixedChart = new Chart(ptx, {
 
 }
 );
-// lineChart.update();
-// mixedChart.update();
-// graphChart.update();
+lineChart.update();
+mixedChart.update();
+graphChart.update();
 }
 
 
