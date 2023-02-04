@@ -14,7 +14,7 @@ const seedAll = async () => {
     await seedAssets();
     console.log('\n----- LIABILITIES SEEDED -----\n');
     await seedUser();
-    console.log('\n----- LIABILITIES SEEDED -----\n');
+    console.log('\n----- User SEEDED -----\n');
     process.exit(0);
 };
 
