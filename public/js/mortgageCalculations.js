@@ -115,7 +115,7 @@ const mixedChart = new Chart(ptx, {
         labels: ['Total Interest','Total Principle'],
         datasets: [{
             label: '$',
-            data: [totalInterestPayment,remainingMortgage ],
+            data: [totalInterestPayment, remainingMortgage],
             backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',
