@@ -2,7 +2,7 @@
 const liabilities_names = [];
 const liabilities_cost = [];
 
-const response = await fetch(`/user/liabilities/auto_loan`, {
+const response= await fetch(`/user/liabilities/auto_loan`, {
     method: 'Get'
     })
 if (response.ok) {
@@ -51,5 +51,8 @@ if (response4.ok) {
 } else {
     alert('Failed to add utilities');
 }
+
+const {liabilities_const, liabilities_names} = require('../js/budjet.js')
+
 
 module.exports = {liabilities_cost, liabilities_names};
