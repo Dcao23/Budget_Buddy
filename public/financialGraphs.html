@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Financial Calculator</title>
+  <link rel="stylesheet" href="./css/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 </head>
@@ -53,6 +54,25 @@
 
   <div id="mortgageDisplay" class="w-full h-80 shrink">
     <div class="mt-5 col-span-2 md:mt-0  w-1/5 inline-block shrink">
+      <div id="financeInfo">
+        <h1 id="main-header">Your loan repayment results:</h1>
+        <div id="monthlyPayments">
+          <h2 class="bg-blue-800 text-teal-200">Monthly Payment:</h2>
+          <p id="mp"></p>
+        </div>
+        <div id="totalLoanCost">
+          <h2 class="bg-blue-800 text-teal-200 ">Loan Amount:</h2>
+          <p id="la"></p>
+        </div>
+        <div id="totalInterest">
+          <h2 class="bg-blue-800 text-teal-200">Total Interest to be Paid:</h2>
+          <p id="ti"></p>
+        </div>
+        <div id="idk">
+          <h2 class="bg-blue-800 text-teal-200">Total Cost of Loan (I+P):</h2>
+          <p id="tcol"></p>
+        </div>
+      </div>
       <div class="overflow-hidden shadow sm:rounded-md ">
         <div class="text-gray-700 px-4 py-5 sm:p-6">
           <div>
