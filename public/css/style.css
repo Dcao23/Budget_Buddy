@@ -1,0 +1,59 @@
+#financeInfo {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 250px;
+    border-style: double;
+    border-bottom: 2px;
+    border-color: black;
+    flex-wrap: wrap;
+}
+
+#main-header {
+    text-align: center;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+
+#financeInfo h2 {
+    font-size: large;
+    font-weight: 500;
+    display: inline-block;
+    width: 25%;
+    height: 20%;
+    text-align: center;
+    border: 3px;
+}
+
+#financeInfo p {
+    width: 25%;
+    height: 70px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+#monthlyPayments {
+    left: 15%;
+     top: 14%;
+     position: relative;
+}
+
+#totalLoanCost {
+    position: relative;
+    left: 55%;
+    bottom: 25%
+}
+
+#totalInterest{
+position: relative;
+left: 55%;
+bottom: 20%;
+
+}
+
+#idk{
+    position: relative;
+    left: 15%;
+    bottom: 59%;
+}
