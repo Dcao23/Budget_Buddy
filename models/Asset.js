@@ -27,9 +27,9 @@ Asset.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      defaultValue:0,
-      references:{
-        model: 'user',
+      allowNull: true,
+      references: {
+        model: 'User',
         key: 'id'
       }
     }
@@ -44,3 +44,5 @@ Asset.init(
 );
 
 module.exports = Asset;
+
+// got rid of defaultValue:0 under user_id

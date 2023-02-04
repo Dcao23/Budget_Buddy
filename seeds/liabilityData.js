@@ -19,17 +19,37 @@ const liabilityData = [
         credit_card: 2827.12,
         student_loan: 2939.01,
         utilities: 232.21,
-        user_id: 1
+        user_id: 2
     },
     {
-        id: 245,
+        id: 3894,
         auto_loan: 38399.11,
         personal_loan: 29278.12,
         mortgage_rent: 3923.12,
         credit_card: 3929.12,
         student_loan: 3928.01,
         utilities: 253.21,
-        user_id: 1
+        user_id: 3
+    },
+    {
+        id: 2342,
+        auto_loan: 38399.11,
+        personal_loan: 29278.12,
+        mortgage_rent: 3923.12,
+        credit_card: 3929.12,
+        student_loan: 3928.01,
+        utilities: 253.21,
+        user_id: 4
+    },
+    {
+        id: 2445,
+        auto_loan: 38399.11,
+        personal_loan: 29278.12,
+        mortgage_rent: 3923.12,
+        credit_card: 3929.12,
+        student_loan: 3928.01,
+        utilities: 253.21,
+        user_id: 5
     },
 ];
 

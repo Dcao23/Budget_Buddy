@@ -24,9 +24,9 @@ FinancialGoal.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      defaultValue:0,
-      references:{
-        model: 'user',
+      allowNull: true,
+      references: {
+        model: 'User',
         key: 'id'
       }
     }
@@ -41,3 +41,5 @@ FinancialGoal.init(
 );
 
 module.exports = FinancialGoal;
+
+// got rid of defaultvalue:0 under user_id

@@ -33,9 +33,9 @@ Liability.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      defaultValue:0,
-      references:{
-        model: 'user',
+      allowNull: true,
+      references: {
+        model: 'User',
         key: 'id'
       }
     }
@@ -50,3 +50,5 @@ Liability.init(
 );
 
 module.exports = Liability;
+
+//took out default 0 from user_id
