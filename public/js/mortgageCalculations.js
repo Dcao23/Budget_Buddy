@@ -1,33 +1,43 @@
 
 // inputs to calculate mortgage payments
-
+ 
    
+      
 
 // equations for calculating monthly mortage payments
 function fixedMortgagePayment () {
-    // var interestRate= ($("#interestRate").val());
-    // var years= $("#years").val();
-    // var downPayment= $('#downPayment').val();
-    // var mortgagecost=  $("#loanAmount").val();
 
-    var interestRate= 3.5;
-    var  years= 30;
-    var downPayment= 0;
-    var mortgagecost=  300000;
-   
+// var interestRate= 0;
+//     var  years= 30;
+//     var downPayment= 0;
+//     var mortgagecost=  300000;
+
+
+
+    var interestRate= ($("#interestRate").val());
+    var years= $("#years").val();
+    var downPayment= $('#downPayment').val();
+    var mortgagecost=  $("#loanAmount").val();
+
+    
+
 
     numOfPaymentPeriods = years * 12;
     var remainingMortgage = mortgagecost - downPayment;
     monthlyIntRate = (interestRate / 100) / 12;
     presentValueAnnuityFactor = (1 - (1 / (1 + monthlyIntRate) ** (numOfPaymentPeriods))) / (monthlyIntRate)
-    monthlyPayment = remainingMortgage / presentValueAnnuityFactor
+    var monthlyPayment = remainingMortgage / presentValueAnnuityFactor
     totalamounttopay = monthlyPayment * numOfPaymentPeriods
-
+   FixedMonthlyPay = monthlyPayment.toFixed(2)
     console.log(downPayment)
     console.log(mortgagecost)
     console.log(interestRate)
     console.log(years)
 
+    var loanADiv =  document.getElementById('la')
+    loanADiv.append(`$${remainingMortgage.toLocaleString()}`)
+var monPayDiv = document.getElementById('mp')
+    monPayDiv.append(`$${FixedMonthlyPay.toLocaleString()}`)
 
 // calculated a series of each interest payment, principle payment, and remaining principles on a monthly bases and pushed them into an array for graphing 
     
@@ -63,18 +73,14 @@ function fixedMortgagePayment () {
 
     }
     
-    for (let i = 1; i< years + 1 ; i++ ){
+    for (let i = 1; i< years ; i++ ){
         graphYears.push(`Year ${i}`);
 
     }
-
- return {totalInterestPayment, remainingMortgage, graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
-}
-
-
-// Will graph the remianing principle of the payments throught the years. 
-var graphData = {totalInterestPayment, remainingMortgage, graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }
-    = fixedMortgagePayment()
+    var totalDiv =  document.getElementById('tcol')
+    totalDiv.append(`$${totalamounttopay.toLocaleString()}`)
+    var totalIntDiv =  document.getElementById('ti')
+    totalIntDiv.append(`$${totalInterestPayment.toLocaleString()}`)
 const ctx = document.getElementById('principleChart')
 const graphChart = new Chart(ctx, {
     data: {
@@ -85,12 +91,8 @@ const graphChart = new Chart(ctx, {
         }],
         labels: graphYears,
     },
-
 });
-
-// Will graph the difference between interest and princple for each payment made.
-var graphData = {totalInterestPayment,remainingMortgage, graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }  
-fixedMortgagePayment()
+// Will graph the remianing principle of the payments throught the years. 
 const stx = document.getElementById('breakDownChart')
 const lineChart = new Chart(stx, {
     data: {
@@ -108,8 +110,7 @@ const lineChart = new Chart(stx, {
     },
 
 });
-var graphData = {totalInterestPayment,remainingMortgage, graphYears, yearlygraphPrinciplePayments, yearlygraphInterestPayments, yearlygraphRemainingPrincipleTotal }  
-fixedMortgagePayment()
+// Will graph the difference between interest and princple for each payment made.
 const ptx = document.getElementById('pieChart')
 const mixedChart = new Chart(ptx, {
 
@@ -129,6 +130,19 @@ const mixedChart = new Chart(ptx, {
 
 }
 );
+// lineChart.update();
+// mixedChart.update();
+// graphChart.update();
+}
+
+
+
+
+
+
+
+
+
 
 
 
