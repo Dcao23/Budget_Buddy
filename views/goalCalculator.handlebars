@@ -1,4 +1,25 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Header area -->
+    <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-9">
+        <svg
+          class="fill-current h-8 w-8 mr-2"
+          width="54"
+          height="54"
+          viewBox="0 0 54 54"
+          xmlns="http://www.w3.org/2000/svg"
+        ></svg>
+        <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
+      </div>
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
           <a
@@ -60,6 +81,18 @@
               placeholder="Insert Amount"
               required
             />
+            <!-- Button to add another budget item -->
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Add Another Item
+            </button>
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              <!-- Button to clear budget item -->
+              Clear Item
+            </button>
           </div>
         </form>
         <!-- Saving Goal -->
@@ -92,6 +125,18 @@
               placeholder="Insert Amount"
               required
             />
+            <!-- Button to add another budget item -->
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Add Another Item
+            </button>
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              <!-- Button to clear budget item -->
+              Clear Item
+            </button>
           </div>
         </form>
         <!-- Calculator section -->
@@ -124,17 +169,16 @@
               placeholder="Insert Amount"
               required
             />
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              <!-- Button to clear budget item -->
+              Clear Calculator
+            </button>
           </div>
         </form>
       </div>
     </div>
-
-    <!-- Button to add another budegt item -->
-    <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-    >
-      Add Another Item
-    </button>
-    <!-- render a loop for each budgetary item entered -->
-    <!-- event listeners will be needed for this section? -->
-    <div>{{each}}</div>
+    <!-- <div>{{each}}</div> -->
+  </body>
+</html>
