@@ -7,40 +7,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/financialGraphs.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/budget.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 </head>
 
-<body>
-    <canvas id='chart' height="400" width="400">
-        <script>
-            const {liabilities_const, liabilities_names} = require('../js/budjet.js')
-            const ctx = document.getElementById('chart')
-            const mixedChart = new Chart(ctx, {
+<body class="h-screen">
+    <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-9">
+            <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+                xmlns="http://www.w3.org/2000/svg"></svg>
+            <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
+        </div>
+        <div class="block lg:hidden">
+            <!-- button for home page -->
+            <!-- <button
+            class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+          >
+            <svg
+              class="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button> -->
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+                <a href="#responsive-header"
+                    class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Home
+                </a>
+                <a href="#responsive-header"
+                    class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Budget
+                </a>
+                <a href="#responsive-header" class=" mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    Goal Calculator
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!--------------------------------------------------------------------------------------------->
 
-                type: 'doughnut',
-                data: {
-                    labels: liabilities_names,
-                    datasets: [{
-                        label: 'My First Dataset',
-                        data: liabilities_const,
-                        backgroundColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(54, 162, 235)',
-                            'rgb(255, 205, 86)'
-                        ],
-                        hoverOffset: 4
-                    }]
-                }
 
-            }
-            );
+    <div id='financialLayout'
+        class="items-start bg-white h-full w-1/4 float-right border-2 border-black border-solid divide-solid > * + *">
+        <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
+            <h1 class="text-xl font-bold mb-2">Monthly Summary</h1>
+            <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
+                <li class="m-2">
+                    <h2 class="inline-block">This Months Income</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$4,000.00</p>
+                </li>
+                <li class="m-2">
+                    <h2 class="inline-block">Mortgage Payment</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$1500.00</p>
+                </li>
+                <li class="m-2">
+                    <h2 class="inline-block">Cost of Utilities:</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$300</p>
+                </li>
+                <li class="m-2">
+                    <h2 class="inline-block">Entertainment:</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$80</p>
+                </li>
+                <li class="m-2">
+                    <h2 class="inline-block">Car Payment:</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$350</p>
+                </li>
+                <li class="m-2">
+                    <h2 class="inline-block">Phone Bill:</h2>
+                    <p class=" inline-block float-right text-xl font-bold">$80</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div id='financialVisuals' class="h-full overflow-y-scroll w-auto">
+        <div id="PieChartGroup" class="relative inline-block h-3/5 w-1/3 mb-10">
+            <h2 class="mb-5 font-bold text-xl text-center">Spending Breakdown</h2>
+            <canvas id='chart' class="relative  content-center text-center ">
+                <script>const mtx = document.getElementById('chart')
+                    const budgetChart = new Chart(mtx, {
 
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Mortgage/Rent', 'Food', 'Utilities','Entertainment', 'Car Payment', 'Phone Bill'],
+                            datasets: [{
+                                label: 'Total Spending by Category (US$)',
+                                data: [1500, 200, 300, 80, 350, 80],
+                                backgroundColor: [
+                                    'rgb(255, 0, 0)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(255, 255, 51)',
+                                    'rgb(0, 0, 204)',
+                                    'rgb(0, 128, 0)',
+                                    'rgb(255, 0, 255)'
+                                    
 
-        </script>
+                                ],
+                                hoverOffset: 4
+                            }]
+                        }
 
+                    }
+                    );</script>
+            </canvas>
+        </div>
+        <div class="h-3/4 mt-4 ">
+            <canvas id="monthlySpending">\
+                <script>
+                    const ctx = document.getElementById('monthlySpending')
+                    const graphChart = new Chart(ctx, {
+                        data: {
+                            datasets: [{
+                                type: 'bar',
+                                label: '$ Monthly Spending',
+                                data: [3100, 2250, 3000, 3500, 3250, 3100, 3350, 3300, 3350, 3600, 3100, 3500],
+                            }],
+                            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        },
+                    });
+                </script>
+            </canvas>
+        </div>
+    </div>
 
-    </canvas>
 </body>
 
 </html>

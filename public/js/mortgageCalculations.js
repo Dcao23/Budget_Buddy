@@ -106,6 +106,7 @@ const lineChart = new Chart(stx, {
     },
 
 });
+
 // Will graph the difference between interest and princple for each payment made.
 const ptx = document.getElementById('pieChart')
 const mixedChart = new Chart(ptx, {
