@@ -3,7 +3,6 @@ const router = require('express').Router();
 const User = require('../../models/User');
 
 
- //TO DO: need to add get route
  router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll();
@@ -15,7 +14,7 @@ const User = require('../../models/User');
 
 router.post('/', async (req, res) => {
     try {
-        const userData = await user.create(req.body);
+        const userData = await User.create(req.body);
 
         req.session.save(() => {
             req.session.user_id = userData.id;

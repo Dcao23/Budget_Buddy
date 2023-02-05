@@ -1,6 +1,15 @@
 const router = require('express').Router();
-const { Asset } = require('../apiRoutes')
+const { Asset } = require('../../models');
 
+router.get('/', async (req, res) => {
+  try {
+      const AssetData = await Asset.findAll();
+      res.status(200).json(AssetData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+
+});
 router.post('/', async (req, res) => {
     try {
       const newAsset = await Asset.create({

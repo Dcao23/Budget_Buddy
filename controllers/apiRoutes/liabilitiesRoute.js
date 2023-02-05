@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Liability } = require('../../models');
+const  Liability  = require('../../models/Liability');
 
 router.get('/', async (req, res) => {
     try {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newLiability = await Liabilities.create({
+        const newLiability = await Liability.create({
             ...req.body,
             user_id: req.session.user_id,
         });
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const liabilityData = await Liabilities.destroy({
+        const liabilityData = await Liability.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
