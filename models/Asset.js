@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Asset extends Model { }
+class Asset extends Model {}
 
 Asset.init(
   {
@@ -29,17 +29,17 @@ Asset.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
+        model: "user",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Asset',
+    modelName: "Asset",
   }
 );
 

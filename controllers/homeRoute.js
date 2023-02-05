@@ -12,4 +12,12 @@ router.get("/goalCalculator", (req, res) => {
   res.render("goalCalculator");
 });
 
+router.get("/financialGraphs", (req, res) => {
+  res.render("financialGraphs");
+});
+
+router.get("/budgetgraph", (req, res) => {
+  res.render("budgetgraph");
+});
+
 module.exports = router;
