@@ -2,11 +2,11 @@ const router = require('express').Router();
 const userRoutes = require('./userRoute');
 const liabilities = require('./liabilitiesRoute');
 const financial = require('./financialRoute');
-const assets = require('./assetsRoute');
+const asset = require('./assetsRoute');
 
 router.use('/user', userRoutes);
 router.use('/liabilities', liabilities);
-router.use('/financial', userRoutes);
-router.use('/assets', userRoutes);
+router.use('/financial', financial);
+router.use('/assets', asset);
 
 module.exports = router;

@@ -13,20 +13,23 @@ Liability.init(
     },
     auto_loan: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: true,
     },
     personal_loan: {
       type: DataTypes.DECIMAL,
+      allowNull: true,
     },
     mortgage_rent: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: true,
     },
     credit_card: {
       type: DataTypes.DECIMAL,
+      allowNull: true,
     },
     student_loan: {
-      type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL,
+      allowNull: true,
     },
     utilities: {
       type: DataTypes.DECIMAL
@@ -35,7 +38,7 @@ Liability.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'User',
+        model: 'user',
         key: 'id'
       }
     }

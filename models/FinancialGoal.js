@@ -26,7 +26,7 @@ FinancialGoal.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'User',
+        model: 'user',
         key: 'id'
       }
     }

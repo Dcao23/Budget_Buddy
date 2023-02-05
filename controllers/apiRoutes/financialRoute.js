@@ -1,9 +1,19 @@
 const router = require('express').Router();
-const { Finances } = require('../apiRoutes')
+const { FinancialGoal } = require('../../models');
+
+router.get('/', async (req, res) => {
+    try {
+        const liabilitiesData = await FinancialGoal.findAll();
+        res.status(200).json(liabilitiesData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
 
 router.post('/', async (req, res) => {
     try {
-        const newFinances = await Finances.create({
+        const newFinances = await FinancialGoal.create({
             ...req.body,
             user_id: req.session.user_id,
         });
@@ -16,7 +26,7 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const financesData = await Finances.destroy({
+        const financesData = await FinancialGoal.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
