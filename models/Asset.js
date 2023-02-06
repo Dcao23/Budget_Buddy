@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Asset extends Model { }
+class Asset extends Model {}
 
 Asset.init(
   {
@@ -20,7 +20,7 @@ Asset.init(
     },
     properties: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     savings: {
       type: DataTypes.FLOAT,
@@ -44,5 +44,3 @@ Asset.init(
 );
 
 module.exports = Asset;
-
-// got rid of defaultValue:0 under user_id

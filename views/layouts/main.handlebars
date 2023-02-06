@@ -18,9 +18,9 @@
         </a>
         {{#if logged_in}}
         <div class="flex items-center">
-            <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Log out</a>
+            <a href="#" id = "logout" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Log out</a>
         </div>
-        {{/if}}
+        
     </div></nav>
 <nav class="bg-gray-50 dark:bg-gray-700">
     <div class="max-w-screen-xl px-4 py-3 mx-auto md:px-6">
@@ -38,14 +38,14 @@
             </ul>
         </div>
     </div>
+   {{/if}}
 </nav>
+ 
   </header>
 
   <main class="container container-fluid mt-5">
     
-    {{{ body }}}
-   
-
+  {{{body}}}
 
   </main>
 
@@ -55,8 +55,11 @@
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+  <script src="/public/js/logout.js"></script>
+  
+  {{else}}
+<a class="dark:text-white " href="/login">You must login first to view this page</a>
+{{/if}}
 </body>
 
 </html>
