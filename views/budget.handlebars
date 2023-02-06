@@ -1,56 +1,59 @@
-
-    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
+<script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
 <section class="h-screen ">
-    <div  id='financialLayout'
+    <div id='financialLayout'
         class=" items-start bg-white h-full w-1/4 float-right border-2 border-black border-solid divide-solid > * + *">
         <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
             <h1 class="text-xl font-bold mb-2">Summary</h1>
             <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
+                {{#each assets}}
                 <li class="m-2">
                     <h2 class="inline-block">Monthly Income</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects1.monthly_income}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{monthly_income}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Vehicles</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects1.vehicles}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{vehicles}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">properties</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects1.properties}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{properties}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Savings Account</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects1.savings}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{savings}}</p>
                 </li>
+                {{/each}}
             </ol>
         </div>
         <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
             <h1 class="text-xl font-bold mb-2">Monthly Costs</h1>
             <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
+                {{#each liabilities}}
                 <li class="m-2">
                     <h2 class="inline-block">Auto Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.auto_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{auto_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Personal Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.personal_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{personal_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Mortgage/Rent</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.mortgage_rent}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{mortgage_rent}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Credit Card</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.credit_card}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{credit_card}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Student Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.student_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{student_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Utilities</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{projects.utilities}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{utilities}}</p>
                 </li>
+                {{/each}}
             </ol>
         </div>
     </div>
@@ -58,15 +61,17 @@
         <div id="PieChartGroup" class="relative inline-block h-3/5 w-1/3 mb-10">
             <h2 class=" mb-5 font-bold text-xl text-center">Spending Breakdown</h2>
             <canvas id='chart' class="relative  content-center text-center ">
+                {{!--
                 <script>const mtx = document.getElementById('chart')
+                    //do a fetch here
                     const budgetChart = new Chart(mtx, {
 
                         type: 'doughnut',
                         data: {
-                            labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent','Credit Card', 'Student Loan', 'Utilities'],
+                            labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
                             datasets: [{
                                 label: 'Total Spending by Category (US$)',
-                                data: [projects.auto_loan, projects.personal_loan, projects.mortgage_rent, projects.credit_card, projects.student_loan, projects.utilities],
+                                data: [liabilities[0].auto_loan, liabilities[0].personal_loan, liabilities[0].mortgage_rent, liabilities[0].credit_card, liabilities[0].student_loan, liabilities[0].utilities],
                                 backgroundColor: [
                                     'rgb(255, 0, 0)',
                                     'rgb(54, 162, 235)',
@@ -92,13 +97,16 @@
                             datasets: [{
                                 type: 'bar',
                                 label: '$ Monthly Spending',
-                                data: [[projects.auto_loan, projects.personal_loan, projects.mortgage_rent, projects.credit_card, projects.student_loan, projects.utilities]],
+                                data: [[liabilities[0].auto_loan, liabilities[0].personal_loan, liabilities[0].mortgage_rent, liabilities[0].credit_card, liabilities[0].student_loan, liabilities[0].utilities]],
                             }],
                             labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
                         },
                     });
-                </script>
+                </script> --}}
             </canvas>
         </div>
     </div>
 </section>
+
+{{!-- trace back assets and liabilities as they are being posted because it is not getting posted to the db, go from
+form, to the js, to the route --}}
