@@ -11,7 +11,7 @@ Asset.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    monthly_income: {
+    monthy_income: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
@@ -20,14 +20,14 @@ Asset.init(
     },
     properties: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     savings: {
       type: DataTypes.FLOAT,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      defaultValue: 0,
       references: {
         model: "user",
         key: "id",
@@ -44,4 +44,3 @@ Asset.init(
 );
 
 module.exports = Asset;
-
