@@ -11,7 +11,7 @@ Asset.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    monthy_income: {
+    monthly_income: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
