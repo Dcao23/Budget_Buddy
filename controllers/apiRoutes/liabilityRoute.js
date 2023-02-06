@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
             ...req.body,
             user_id: req.session.user_id,
         });
-
+        console.log("added")
         res.status(200).json(newLiability);
     } catch (err) {
         res.status(400).json(err);
