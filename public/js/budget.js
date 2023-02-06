@@ -52,7 +52,7 @@ if (response4.ok) {
     alert('Failed to add utilities');
 }
 
-const {liabilities_const, liabilities_names} = require('../js/budjet.js')
+const {liabilities_cost, liabilities_names} = require('../js/budjet.js')
 
 
 module.exports = {liabilities_cost, liabilities_names};
