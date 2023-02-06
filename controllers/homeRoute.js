@@ -1,11 +1,15 @@
 // Route to render homepage and export
 const router = require("express").Router();
 router.get("/", (req, res) => {
-  res.render("homepage");
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
 });
 
-router.get("/budget", (req, res) => {
-  res.render("budget");
+router.get("/assets", (req, res) => {
+  res.render("assets");
 });
 
 router.get("/goalCalculator", (req, res) => {
