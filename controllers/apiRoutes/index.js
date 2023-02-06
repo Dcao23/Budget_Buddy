@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoute');
-const liabilities = require('./liabilitiesRoute');
+const liabilities = require('./liabilityRoute');
 const financial = require('./financialRoute');
 const asset = require('./assetsRoute');
 
