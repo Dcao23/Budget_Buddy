@@ -8,7 +8,7 @@ const assetAmount3 = document.querySelector("#assetAmount3").value.trim();
   if (assetAmount && assetAmount1 && assetAmount2 && assetAmount3) {
     const response = await fetch("/api/assets", {
       method: "POST",
-      body: JSON.stringify({ assetAmount,assetAmount1,assetAmount2,assetAmount3 }),
+      body: JSON.stringify({ monthly_income: assetAmount,vehicles:assetAmount1,properties:assetAmount2,savings:assetAmount3, user_id:req.session.user_id }),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -30,9 +30,9 @@ const liabilitiesFromHandler = async (event) => {
     const liabilityAmount5 = document.querySelector("#liabilityAmount3").value.trim();
 
       if (liabilityAmount && liabilityAmount1 && liabilityAmount2 && liabilityAmount3 && liabilityAmount4 && liabilityAmount5) {
-        const response = await fetch("/api/liabilities", {
+        const response = await fetch("/api/liabilities/", {
           method: "POST",
-          body: JSON.stringify({ liabilityAmount,liabilityAmount1,liabilityAmount2,liabilityAmount3,liabilityAmount4,liabilityAmount5 }),
+          body: JSON.stringify({ auto_loan: liabilityAmount,personal_loan: liabilityAmount1,mortgage_rent: liabilityAmount2,credit_card: liabilityAmount3,student_loan:liabilityAmount4,utilities:liabilityAmount5, user_id:req.session.user_id }),
           headers: { "Content-Type": "application/json" },
         });
     
@@ -46,9 +46,9 @@ const liabilitiesFromHandler = async (event) => {
 
 
 document
-  .querySelector(".login-form")
+  .querySelector(".asset-form")
   .addEventListener("submit", assetFormHandler);
 
 document
-  .querySelector(".signup-form")
+  .querySelector(".liabilities-form")
   .addEventListener("submit", liabilitiesFromHandler);
