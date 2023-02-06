@@ -1,163 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <!-- Header area -->
-    <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
-      <div class="flex items-center flex-shrink-0 text-white mr-9">
-        <svg
-          class="fill-current h-8 w-8 mr-2"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
-          xmlns="http://www.w3.org/2000/svg"
-        ></svg>
-        <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
-      </div>
-    </nav>
-    <!-- Input area -->
-    <!-- Budget box -->
-    <div
-      class="flex items-center"
-      style="width: fit-content; height: fit-content"
-    >
-      <div class="grid grid-cols-3 gap-3">
-        <form
-          class="bg-white dark:bg-gray-800 p-4"
-          style="width: 205px;"
-        >
-          <div class="mb-6">
-            <label
-              for="loanRepayment"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Loan Repayment</label
-            >
-            <input
-              type="loanRepayment"
-              id="loanRepayment"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Item"
-              requiredgit style="width: 216px;
-              height: 42px;"
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="loanAmount"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Loan Amount</label
-            >
-            <input
-              type="loanAmount"
-              id="loanAmount"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Amount"
-              required style="width: 216px;
-              height: 42px;"
-            />
-            <!-- Button to add another budget item -->
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            >
-              Add Another Item
-            </button>
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            >
-              <!-- Button to clear budget item -->
-              Clear Item
-            </button>
-          </div>
-        </form>
-        <!-- Saving Goal -->
-        <form class="bg-white dark:bg-gray-800 p-4">
-          <div class="mb-6">
-            <label
-              for="savingGoal"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Saving Goal</label
-            >
-            <input
-              type="savingGoal"
-              id="savingGoal"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Item"
-              required
-            />
-          </div>
 
-          <div class="mb-6">
-            <label
-              for="savingAmount"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Saving Amount</label
-            >
-            <input
-              type="savingAmount"
-              id="savingAmount"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Amount"
-              required
-            />
-            <!-- Button to add another budget item -->
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            >
-              Add Another Item
-            </button>
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            >
-              <!-- Button to clear budget item -->
-              Clear Item
-            </button>
-          </div>
-        </form>
-        <!-- Calculator section -->
-        <form class="bg-white dark:bg-gray-800 p-4">
-          <div class="mb-6">
-            <label
-              for="calculatorItem"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Calculator Item</label
-            >
-            <input
-              type="calculatorItem"
-              id="calculatorItem"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Item"
-              required
-            />
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-          <div class="mb-6">
-            <label
-              for="calculatorAmount"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Amount</label
-            >
-            <input
-              type="calculatorAmount"
-              id="calculatorAmount"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Insert Amount"
-              required
-            />
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            >
-              <!-- Button to clear budget item -->
-              Clear Calculator
-            </button>
-          </div>
-        </form>
-      </div>
+<body>
+  <!-- Header area -->
+  <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-9">
+      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+        xmlns="http://www.w3.org/2000/svg"></svg>
+      <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
     </div>
-  </body>
+  </nav>
+  <!-- Input area -->
+  <!-- Budget box -->
+  <div class="flex items-center" style="width: fit-content; height: fit-content">
+    <div class="grid grid-cols-3 gap-3">
+      <form class="bg-white dark:bg-gray-800 p-4" style="width: 205px;">
+        <div class="mb-6">
+          <label for="loanRepayment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Repayment</label>
+          <input type="loanRepayment" id="loanRepayment"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Item" requiredgit style="width: 216px; height: 42px;"/>
+        </div>
+        <div class="mb-6">
+          <label for="loanAmount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Amount</label>
+          <input type="loanAmount" id="loanAmount"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Amount" required style="width: 216px; height: 42px;"/>
+          <!-- Button to add another budget item -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Another Item</button>
+            <!-- Button to clear budget item -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Clear Item</button>
+        </div>
+      </form>
+      <!-- Saving Goal -->
+      <form class="bg-white dark:bg-gray-800 p-4">
+        <div class="mb-6">
+          <label for="savingGoal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Saving Goal</label>
+          <input type="savingGoal" id="savingGoal"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Item" required/>
+        </div>
+
+        <div class="mb-6">
+          <label for="savingAmount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Saving Amount</label>
+          <input type="savingAmount" id="savingAmount"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Amount" required/>
+          <!-- Button to add another budget item -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Another Item</button>
+            <!-- Button to clear budget item -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Clear Item</button>
+        </div>
+      </form>
+      <!-- Calculator section -->
+      <form class="bg-white dark:bg-gray-800 p-4">
+        <div class="mb-6">
+          <label for="calculatorItem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Calculator Item</label>
+          <input type="calculatorItem" id="calculatorItem"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Item" required/>
+        </div>
+
+        <div class="mb-6">
+          <label for="calculatorAmount"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
+          <input type="calculatorAmount" id="calculatorAmount"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Insert Amount" required/>
+            <!-- Button to clear budget item -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Clear Calculator</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

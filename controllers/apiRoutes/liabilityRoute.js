@@ -1,6 +1,5 @@
 const router = require('express').Router();
-
-const  Liability  = require('../../models/Liability');
+const Liability  = require('../../models/Liability');
 
 router.get('/', async (req, res) => {
     try {
