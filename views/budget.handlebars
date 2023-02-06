@@ -1,26 +1,26 @@
 
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
-
-    <div id='financialLayout'
+<section class="h-screen ">
+    <div  id='financialLayout'
         class=" items-start bg-white h-full w-1/4 float-right border-2 border-black border-solid divide-solid > * + *">
         <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
             <h1 class="text-xl font-bold mb-2">Summary</h1>
             <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
                 <li class="m-2">
                     <h2 class="inline-block">Monthly Income</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project1.monthly_income}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects1.monthly_income}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Vehicles</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project1.vehicles}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects1.vehicles}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">properties</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project1.properties}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects1.properties}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Savings Account</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project1.savings}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects1.savings}}</p>
                 </li>
             </ol>
         </div>
@@ -29,27 +29,27 @@
             <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
                 <li class="m-2">
                     <h2 class="inline-block">Auto Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.auto_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.auto_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Personal Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.personal_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.personal_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Mortgage/Rent</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.mortgage_rent}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.mortgage_rent}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Credit Card</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.credit_card}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.credit_card}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Student Loan</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.student_loan}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.student_loan}}</p>
                 </li>
                 <li class="m-2">
                     <h2 class="inline-block">Utilities</h2>
-                    <p class=" inline-block float-right text-xl font-bold">${{project.utilities}}</p>
+                    <p class=" inline-block float-right text-xl font-bold">${{projects.utilities}}</p>
                 </li>
             </ol>
         </div>
@@ -66,7 +66,7 @@
                             labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent','Credit Card', 'Student Loan', 'Utilities'],
                             datasets: [{
                                 label: 'Total Spending by Category (US$)',
-                                data: [project.auto_loan, project.personal_loan, project.mortgage_rent, project.credit_card, project.student_loan, project.utilities],
+                                data: [projects.auto_loan, projects.personal_loan, projects.mortgage_rent, projects.credit_card, projects.student_loan, projects.utilities],
                                 backgroundColor: [
                                     'rgb(255, 0, 0)',
                                     'rgb(54, 162, 235)',
@@ -92,7 +92,7 @@
                             datasets: [{
                                 type: 'bar',
                                 label: '$ Monthly Spending',
-                                data: [[project.auto_loan, project.personal_loan, project.mortgage_rent, project.credit_card, project.student_loan, project.utilities],
+                                data: [[projects.auto_loan, projects.personal_loan, projects.mortgage_rent, projects.credit_card, projects.student_loan, projects.utilities]],
                             }],
                             labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
                         },
@@ -101,3 +101,4 @@
             </canvas>
         </div>
     </div>
+</section>
