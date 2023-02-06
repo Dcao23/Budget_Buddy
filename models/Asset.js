@@ -43,10 +43,5 @@ Asset.init(
   }
 );
 
-<<<<<<< HEAD
 module.exports = Asset;
 
-// got rid of defaultValue:0 under user_id
-=======
-module.exports = Asset;
->>>>>>> c0cc583c5dac1fe03a766f2879854934eead7a45
