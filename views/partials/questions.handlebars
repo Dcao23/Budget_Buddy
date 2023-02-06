@@ -1,102 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Question Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
-      <div class="flex items-center flex-shrink-0 text-white mr-9">
-        <svg
-          class="fill-current h-8 w-8 mr-2"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
-          xmlns="http://www.w3.org/2000/svg"
-        ></svg>
-        <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-9">
+      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"></svg>
+      <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Home</a>
+        <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Budget</a>
+        <a href="/goalCalculator" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">Goal Calculator</a>
       </div>
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-          >
-            Home
-          </a>
-          <a
-            href="/"
-            class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-          >
-            Budget
-          </a>
-          <a
-            href="/goalCalculator"
-            class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-          >
-            Goal Calculator
-          </a>
-        </div>
-      </div>
-    </nav>
-    <div
-    class="flex items-center"
-    style="width: fit-content; height: fit-content"
-  >
+    </div>
+  </nav>
+  <div class="flex items-center" style="width: fit-content; height: fit-content">
     <div class="grid grid-cols-2 gap-2">
-      <form
-        class="bg-white dark:bg-gray-800 p-4"
-        style="width: 500px; height: 500px"
-      >
+      <form class="bg-white dark:bg-gray-800 p-4" style="width: 500px; height: 500px">
         <div class="mb-6">
-          <label
-            for="nameSection"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Name</label
-          >
-          <input
-            type="nameSection"
-            id="nameSection"
+          <label for="nameSection" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+          <input type="nameSection" id="nameSection"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Name"
-            required
-          />
+            placeholder="Insert Name" required/>
         </div>
         <div class="mb-6">
-          <label
-            for="emailSection"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Email</label
-          >
-          <input
-            type="emailSection"
-            id="emailSection"
+          <label for="emailSection" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+          <input type="emailSection" id="emailSection"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Email"
-            required
-          />
+            placeholder="Insert Email" required/>
         </div>
         <div class="mb-6">
-          <label
-            for="passwordSection"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Password</label
-          >
-          <input
-            type="passwordSection"
-            id="emailSection"
+          <label for="passwordSection"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+          <input type="passwordSection" id="emailSection"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Password"
-            required
-          />
+            placeholder="Insert Password" required/>
         </div>
-        <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-      >
-        Submit
-      </button>
-  </body>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Submit</button>
+</body>
+
 </html>
