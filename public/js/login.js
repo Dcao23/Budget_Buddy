@@ -19,32 +19,10 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const signupFormHandler = async (event) => {
-  event.preventDefault();
-  console.log("clicked");
-  const username = document.querySelector("#nameSection").value.trim();
-  const email = document.querySelector("#emailSection").value.trim();
-  const password = document.querySelector("#passwordSection").value.trim();
 
-  if (username && email && password) {
-    const response = await fetch("/api/user", {
-      method: "POST",
-      body: JSON.stringify({ name: username,email: email,password: password }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.location.href = "/home";
-    } else {
-      alert("Failed to sign up.");
-    }
-  }
-};
 
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
 
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+
