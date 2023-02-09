@@ -14,7 +14,7 @@ Budget Buddy is a input driven application that allows users to create and alter
 4. The Goal Calculator page contains a Loan Repayment section that will give users the options to input their current loans/credit card payment, term of the loan, APR(Annual Percentage Rate), monthly minimum payment, and due date; the Goal Calculator page also, contains a section where users can input any and all saving goals. The Goal Calculator page wraps up with a section dedicated to calculating alternative payment options for loans, credit cards, or any kind of debt the user has. This section has the ability to calculate alternatives such as: curtailment or principal driven payment that can decrease the life of a loan or detail how much of the minimal payment on the users debt is interest to name a few.   
 ## Important Links
 
-## Technology Used
+https://budget-buddy.herokuapp.com/## Technology Used
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
