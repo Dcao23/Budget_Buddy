@@ -1,16 +1,18 @@
 
-const mtx = document.getElementById('chart')
-                    //do a fetch here
-                    const liabilitiesGet = async () => {
-                        const result = await fetch(`/api/liabilities`, {
-                          method: 'GET',
-                        });
-                        const liabilities = await result.json();
-                        console.log(liabilities);
-                      return liabilities;
-                      
-                    };
-                    console.log(liabilities);
+const mtx = document.getElementById('chart');
+
+const auto1 = document.getElementById('auto').innerHTML;
+var auto = parseInt(auto1);
+const personal1 = document.getElementById('personal').innerHTML;
+var personal = parseInt(personal1);
+const mortgage1 = document.getElementById('mortgage').innerHTML;
+var mortgage = parseInt(mortgage1);
+const credit1 = document.getElementById('credit').innerHTML;
+var credit = parseInt(credit1);
+const student1 = document.getElementById('student').innerHTML;
+var student = parseInt(student1);
+const utilities1= document.getElementById('utilities').innerHTML;
+var utilities = parseInt(utilities1);
                       const budgetChart = new Chart(mtx, {
                         
                         type: 'doughnut',
@@ -18,7 +20,7 @@ const mtx = document.getElementById('chart')
                             labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
                             datasets: [{
                                 label: 'Total Spending by Category (US$)',
-                                data: [liabilities[0].auto_loan, liabilities[0].personal_loan, liabilities[0].mortgage_rent, liabilities[0].credit_card, liabilities[0].student_loan, liabilities[0].utilities],
+                                data: [auto, personal, mortgage, credit, student, utilities],
                                 backgroundColor: [
                                     'rgb(255, 0, 0)',
                                     'rgb(54, 162, 235)',
