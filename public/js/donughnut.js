@@ -1,3 +1,4 @@
+
 const mtx = document.getElementById('chart')
                     //do a fetch here
                     const liabilitiesGet = async () => {
@@ -5,11 +6,10 @@ const mtx = document.getElementById('chart')
                           method: 'GET',
                         });
                         const liabilities = await result.json();
+                        console.log(liabilities);
                       return liabilities;
                       
                     };
-                    
-                    const liabilities = liabilitiesGet();
                     console.log(liabilities);
                       const budgetChart = new Chart(mtx, {
                         
