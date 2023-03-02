@@ -10,60 +10,130 @@
 </head>
 
 <body>
-  <!-- Header area -->
-  <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-9">
-      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"></svg>
-      <span class="font-semibold text-xl tracking-tight">BUDGET BUDDY</span>
-  </nav>
-  <!-- Input area -->
-  <!-- Budget box -->
-  <div class="flex items-center" style="width: fit-content; height: fit-content">
-    <div class="grid grid-cols-2 gap-2">
-      <form class="bg-white dark:bg-gray-800 p-4" style="width: 500px; height: 500px">
-        <div class="mb-6">
-          <label for="budgetItem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Budget Item</label>
-          <input type="budgetItem" id="budgetItem"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Item" required style="width: 348px;"/>
-        </div>
-        <div class="mb-6">
-          <label for="budgetAmount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Budget Amount</label>
-          <input type="budgetAmount" id="budgetAmount"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Amount" required style="width: 348px;"/>
-          <!-- Button to add another budget item -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Another Item</button>
-            <!-- Button to clear budget item -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Clear Item</button>
-        </div>
-      </form>
-      <!-- Investment box -->
-      <form class="bg-white dark:bg-gray-800 p-4">
-        <div class="mb-6">
-          <label for="investmentItem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Investment Item</label>
-          <input type="investmentItem" id="investmentItem"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Item" required/>
-        </div>
+  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
+  <section class="h-screen relative overflow-x-auto">
+      <div id='financialLayout'
+          class=" ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">
+          <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
+              <h1 class="text-xl font-bold text-white mb-2">Summary</h1>
+              <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
+                  {{#each assets}}
+                  <li class="m-2">
+                      <h2 class="inline-block">Monthly Income</h2>
+                      <p class=" inline-block float-right text-xl font-bold">{{monthly_income}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Vehicles</h2>
+                      <p class=" inline-block float-right text-xl font-bold">{{vehicles}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">properties</h2>
+                      <p class=" inline-block float-right text-xl font-bold">{{properties}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Savings Account</h2>
+                      <p class=" inline-block float-right text-xl font-bold">{{savings}}</p>
+                  </li>
+                  {{/each}}
+              </ol>
+          </div>
+          <div class=" ml-6 divide-solid divide-slate-400 divide-y-2 mt-10 ">
+              <h1 class="text-xl font-bold text-white mb-2">Monthly Costs</h1>
+              <ol class="divide-dashed divide-slate-400 divide-y-2 m-4">
+                  {{#each liabilities}}
+                  <li class="m-2">
+                      <h2 class="inline-block">Auto Loan</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id="auto">{{auto_loan}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Personal Loan</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id="personal">{{personal_loan}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Mortgage/Rent</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id="mortgage">{{mortgage_rent}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Credit Card</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id="credit">{{credit_card}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Student Loan</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id="student">{{student_loan}}</p>
+                  </li>
+                  <li class="m-2">
+                      <h2 class="inline-block">Utilities</h2>
+                      <p class=" inline-block float-right text-xl font-bold" id='utilities'>{{utilities}}</p>
+                  </li>
+                  {{/each}}
+              </ol>
+          </div>
+      </div>
 
-        <div class="mb-6">
-          <label for="investmentItem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Investment Amount</label>
-          <input type="investmentAmount" id="investmentAmount"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Insert Amount" required/>
-          <!-- Button to add another budget item -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Another Item</button>
-          <!-- Button to clear budget item -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Clear Item</button>
-        </div>
-      </form>
-    </div>
-  </div>
+      <div id='financialVisuals' class="relative overflow-x-auto">
+          <div id="PieChartGroup" class=" ">
+              <h2 class=" mb-5 font-bold text-xl text-white text-center">Spending Breakdown</h2>
+              <canvas id='chart' class="relative  content-center text-center ">
+                  <script>
+                      const mtx = document.getElementById('chart');
+  
+                      const auto1 = document.getElementById('auto').innerHTML;
+                      const auto = parseInt(auto1);
+                      const personal1 = document.getElementById('personal').innerHTML;
+                      const personal = parseInt(personal1);
+                      const mortgage1 = document.getElementById('mortgage').innerHTML;
+                      const mortgage = parseInt(mortgage1);
+                      const credit1 = document.getElementById('credit').innerHTML;
+                      const credit = parseInt(credit1);
+                      const student1 = document.getElementById('student').innerHTML;
+                      const student = parseInt(student1);
+                      const utilities1 = document.getElementById('utilities').innerHTML;
+                      const utilities = parseInt(utilities1);
+                      const budgetChart = new Chart(mtx, {
+  
+                          type: 'doughnut',
+                          data: {
+                              labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
+                              datasets: [{
+                                  label: 'Total Spending by Category (US$)',
+                                  data: [auto, personal, mortgage, credit, student, utilities],
+                                  backgroundColor: [
+                                      'rgb(255, 0, 0)',
+                                      'rgb(54, 162, 235)',
+                                      'rgb(255, 255, 51)',
+                                      'rgb(0, 0, 204)',
+                                      'rgb(0, 128, 0)',
+                                      'rgb(255, 0, 255)'
+                                  ],
+                                  hoverOffset: 6
+                              }]
+                          }
+  
+                      }
+                      );
+                  </script>
+              </canvas>
+          </div>
 
-  <!-- render a loop for each budgetary item entered -->
-  <!-- event listeners will be needed for this section? -->
-
+          <div class="text-gray-400">
+              <canvas class="relative  content-center text-center" id="monthlySpending">\
+                  <script>
+                      const ctx = document.getElementById('monthlySpending');
+                      const graphChart = new Chart(ctx, {
+                          data: {
+                              datasets: [{
+                                  type: 'bar',
+                                  label: '$ Monthly Spending',
+                                  data: [[ auto,personal, mortgage, credit, student,  utilities]],
+                              }],
+                      labels: ['Auto Loan', 'Personal Loan', 'Mortgage/Rent', 'Credit Card', 'Student Loan', 'Utilities'],
+                          },
+                      });
+                  </script>
+              </canvas>
+          </div>
+      </div>
+  </section>
 </body>
 
 </html>

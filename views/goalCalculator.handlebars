@@ -1,14 +1,54 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
+{{!-- <div class="flex items-center"> {{#each user.financialGoal as |FinancialGoal|}}{{> goalsItems}} {{/each}}</div>
+--}}
 
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js "></script>
- {{!-- <div class="flex items-center"> {{#each user.financialGoal as |FinancialGoal|}}{{> goalsItems}} {{/each}}</div> --}}
-   
-    
-  <div id="mortgageDisplay" class="bg-white w-full h-80 shrink">
-    <div class="mt-5 col-span-2 md:mt-0  w-1/5 inline-block shrink">
+
+<div id="mortgageDisplay" class=" text-white flex flex-col space-y-4">
+  <div class="">
+
+
+    <div class="text-white ">
+      <div class=" px-4 py-5 sm:p-6">
+        <div>
+          <div class="col-span-6">
+            <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Amount
+              $:</label>
+            <input name="Loan Amount" id="loanAmount" autocomplete="given-name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Down Payment
+              $:</label>
+            <input type="text" name="last-name" id="downPayment" autocomplete="family-name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+
+          <div class="col-span-6 sm:col-span-4">
+            <label for="email-address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest
+              rate (%):</label>
+            <input type="text" name="email-address" id="interestRate" autocomplete="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+
+
+          <div class="col-span-6">
+            <label for="street-address"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years:</label>
+            <input type="text" name="street-address" id="years" autocomplete="street-address"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+
+          <div class="col-span-6">
+            <button id='calculate'
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Calculate</button>
+          </div>
+        </div>
+      </div>
+
       <div id="financeInfo">
-        <h1 id="main-header">Your loan repayment results:</h1>
+        <h1 id="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your loan repayment results:</h1>
         <div id="monthlyPayments">
           <h2 class="bg-blue-800 text-teal-200">Monthly Payment:</h2>
           <p id="mp"></p>
@@ -26,57 +66,22 @@
           <p id="tcol"></p>
         </div>
       </div>
-      <div class="overflow-hidden shadow sm:rounded-md ">
-        <div class="text-gray-700 px-4 py-5 sm:p-6">
-          <div>
-            <div class="col-span-6">
-              <label for="first-name" class="block text-sm font-medium text-gray-700">Loan Amount $:</label>
-              <input name="Loan Amount" id="loanAmount" autocomplete="given-name"
-                class=" shrink mt-1 block  rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-            </div>
-
-            <div class="col-span-6 sm:col-span-3">
-              <label for="last-name" class="block text-sm font-medium text-gray-700">Down Payment $:</label>
-              <input type="text" name="last-name" id="downPayment" autocomplete="family-name"
-                class="mt-1 block rounded-md ring-blue-100 border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-            </div>
-
-            <div class="col-span-6 sm:col-span-4">
-              <label for="email-address" class="block text-sm font-medium text-gray-700">Interest rate (%):</label>
-              <input type="text" name="email-address" id="interestRate" autocomplete="email"
-                class="mt-1 block rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-            </div>
-
-
-            <div class="col-span-6">
-              <label for="street-address" class="block text-sm font-medium text-gray-700">Years:</label>
-              <input type="text" name="street-address" id="years" autocomplete="street-address"
-                class="mt-1 block rounded-md border-2 border-stone-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-            </div>
-
-
-          </div>
-        </div>
-        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-          <button id='calculate'
-            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Calculate</button>
-        </div>
-      </div>
 
     </div>
-
-    <canvas class="text-white float-right" id="pieChart">
-    </canvas>
-    
   </div>
 
-  <canvas class="text-white" id='principleChart'>
+
+  
+  <div class="flex flex-wrap justify-evenly space-x-2 inline ">
+<canvas class="  text-white max-h-72 max-w-sm" id="pieChart">
   </canvas>
+    <canvas class=" text-white max-h-72 max-w-sm" id='principleChart'>
+    </canvas>
+  </div>
+  <canvas class="flex-auto text-white max-h-72 " id="breakDownChart">
+    </canvas>
+</div>
 
-  <canvas class="text-white" id="breakDownChart">
-  </canvas>
-
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <script src="/js/mortgageCalculations.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="/js/mortgageCalculations.js"></script>
