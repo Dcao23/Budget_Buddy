@@ -10,7 +10,20 @@ router.get('/', async (req, res) => {
     }
 
 });
+router.get('/:id', async (req, res) => {
+    try {
+        const liabilitiesData = await Liability.findAll({
+            where: {
+              id: req.params.id,
+              user_id: req.session.user_id,
+            },
+          });
+        res.status(200).json(liabilitiesData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 
+});
 router.post('/', async (req, res) => {
     try {
         const newLiability = await Liability.create({
